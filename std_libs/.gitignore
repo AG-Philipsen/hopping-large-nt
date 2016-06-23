@@ -1,0 +1,17 @@
+*~
+*.o
+*.out
+.*.swp
+.nfs*
+.ycm*
+hardcopy*
+
+Makefile
+mk
+Rules.top
+
+obj/*
+tests/obj/*
+doc/latex/*
+
+main.cpp

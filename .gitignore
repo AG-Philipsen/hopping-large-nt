@@ -1,0 +1,16 @@
+*~
+*.o
+*.out
+.*.swp
+.nfs*
+.ycm*
+hardcopy*
+
+obj/*
+
+Algebra/*
+progArchives/*
+Massif/*
+
+Exponensiate/exponensiate
+Exponensiate/Confs

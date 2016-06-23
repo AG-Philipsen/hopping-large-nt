@@ -1,0 +1,6 @@
+EXTRACT_ALL = NO
+PROJECT_NAME = "Standard libraries"
+INPUT = .
+GENERATE_HTML = NO
+USE_PDFLATEX = YES
+LATEX_OUTPUT = doc/latex
