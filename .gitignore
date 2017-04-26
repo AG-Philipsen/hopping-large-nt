@@ -8,9 +8,4 @@ hardcopy*
 
 obj/*
 
-Algebra/*
-progArchives/*
-Massif/*
-
-Exponensiate/exponensiate
-Exponensiate/Confs
+Configurations/*
