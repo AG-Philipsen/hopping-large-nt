@@ -1,5 +1,5 @@
 //Created: 19-09-2013
-//Modified: Mon 18 Aug 2014 11:50:38 CEST
+//Modified: Wed 26 Apr 2017 17:55:05 BST
 //Author: Jonas R. Glesaaen (jonas@glesaaen.com)
 //Description: Implementation of the functions directly related to the paths
 
@@ -47,7 +47,7 @@ void fill_used_external(std::vector<char> &used, const PMPath &p, std::vector<in
 
 void PMConfig::populatePaths(){
 
-  paths.emplace_back(cfgArray.size());
+  paths.emplace_back(cfgArray.size(), *this);
 
   std::vector<char> used(cfgArray.size());
   for(int i=0; i<cfgArray.size(); i++){
@@ -63,7 +63,6 @@ void PMConfig::populatePaths(){
     while(it != paths.end()){
       //if(!valid_multi_tr_path(*it)){
       std::vector<int> displacements(trace_points.size(),0);
-      int dummy_int;
       if(!it->valid_multi_tr_path(cfgArray,trace_points)){
         it = paths.erase(it);
         continue;

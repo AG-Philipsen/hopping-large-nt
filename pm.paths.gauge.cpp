@@ -1,11 +1,12 @@
 //Created: 27-09-2013
-//Modified: Tue 19 Aug 2014 17:11:58 CEST
+//Modified: Wed 26 Apr 2017 17:49:53 BST
 //Author: Jonas R. Glesaaen (jonas@glesaaen.com)
 //Description: Implementation of the functions related to the gauge-integral of the PMPath-class.
 // 	       Also implementation of the Wilson-struct member functions
 
 #include"pm.paths.h"
 #include"std_libs/counted_set.hpp"
+#include"pm.config.h"
 
 namespace hop{
 
@@ -243,6 +244,7 @@ PMPath::set_wilson_positions(
 
 		w.emplace_back();
 		w.back().prefactor = 1;
+    w.back().number_of_traces = parent.numberOfTraces();
 
 		for(int i=0; i<path.size(); i++){
 

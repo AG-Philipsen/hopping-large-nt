@@ -1,5 +1,5 @@
 //Created: 09-09-2013
-//Modified: Tue 19 Aug 2014 11:32:31 CEST
+//Modified: Wed 26 Apr 2017 18:07:51 BST
 //Author: Jonas R. Glesaaen (jonas@glesaaen.com)
 
 #ifndef PMPATHS_H
@@ -68,12 +68,31 @@ private:
 	static int print_delta;
 	static int print_wilson;
 
+  const PMConfig & parent;
+
 
 public:
-	PMPath(int len) : path(len,0), s_paths(1,std::vector<int>(len,0)) {};
-	PMPath(const int *dat, int len) : path(dat,dat+len), s_paths(1,std::vector<int>(dat,dat+len)) {};
-	PMPath(const PMPath &rhs) : path(rhs.path), s_paths(rhs.s_paths), trace_disp(rhs.trace_disp), deltas(rhs.deltas), w(rhs.w) {};
-	~PMPath() {};
+  PMPath(int len, const PMConfig &p)
+      : path(len, 0), s_paths(1, std::vector<int>(len, 0)), parent(p){};
+
+  PMPath(const int *dat, int len, const PMConfig &p)
+      : path(dat, dat + len),
+        s_paths(1, std::vector<int>(dat, dat + len)),
+        parent(p)
+  {
+  }
+
+  PMPath(const PMPath &rhs)
+      : path(rhs.path),
+        s_paths(rhs.s_paths),
+        trace_disp(rhs.trace_disp),
+        deltas(rhs.deltas),
+        w(rhs.w),
+        parent(rhs.parent)
+  {
+  }
+
+  ~PMPath(){};
 
 	int& operator[](int i) {return path[i];}; 
 	const int& operator[](int i) const {return path[i];};
