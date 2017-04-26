@@ -1,4 +1,4 @@
-//Modified: Fri 06 Mar 2015 13:53:07 CET
+//Modified: Wed 26 Apr 2017 18:09:06 BST
 //Author: Jonas R. Glesaaen (jonas@glesaaen.com)
 
 #include"collector.concrete.hpp"
@@ -15,16 +15,13 @@ namespace hop {
 void TermCollector::configCollector(PMConfig * object)
 {
   current_config_prefactor = object->get_prefactor();
-  current_number_of_traces = object->numberOfTraces();
 }
 
 void TermCollector::pathCollector(PMPath * object)
 {
   for(WilsonString & w_term : object->w) {
 
-    //w_term.coordinateCleanup();
     w_term.prefactor *= current_config_prefactor;
-    w_term.number_of_traces = current_number_of_traces;
 
     auto lower = std::lower_bound(
         terms.begin(), terms.end(), 

@@ -1,5 +1,5 @@
 //Created: 23-05-2014
-//Modified: Tue 19 Aug 2014 18:13:11 CEST
+//Modified: Wed 26 Apr 2017 18:09:16 BST
 //Author: Jonas R. Glesaaen (jonas@glesaaen.com)
 
 #ifndef COLLECTOR_CONCRETE_HPP
@@ -19,7 +19,6 @@ class TermCollector : public Collector
 private:
   std::list<WilsonString> terms;
   boost::rational<PM::pref_type> current_config_prefactor;
-  int current_number_of_traces;
 
 public:
   virtual void pathCollector(PMPath * path);
